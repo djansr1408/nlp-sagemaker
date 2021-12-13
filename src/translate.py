@@ -2,11 +2,11 @@ import torch
 from torchtext.data import Example
 import argparse
 
-from src.utils.data_preparing import get_data_loaders, tokenize_trg
-from src.utils.helper import form_subsequent_mask
-from src.config import TRANSFORMER_CONFIG
-import src.utils.constants as C
-from src.models import Transformer
+from utils.data_preparing import get_data_loaders, tokenize_trg
+from utils.helper import form_subsequent_mask
+from config import TRANSFORMER_CONFIG
+import utils.constants as C
+from models import Transformer
 
 
 def translate_sentence(model, src_seq, src_pad_token_id, trg_tokenizer, device, beam_size):
