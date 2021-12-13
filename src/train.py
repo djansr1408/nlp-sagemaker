@@ -2,9 +2,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import os
-print(os.path.dirname(os.path.realpath(__file__)))
-
-
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -13,9 +10,9 @@ from torch.utils.tensorboard import SummaryWriter
 import numpy as np
 import argparse
 
-from utils.data_preparing import get_data_loaders
-import utils.constants as C
-from utils.helper import load_checkpoint, form_subsequent_mask
+from src.utils.data_preparing import get_data_loaders
+import src.utils.constants as C
+from src.utils.helper import load_checkpoint, form_subsequent_mask
 from src.models import Transformer
 from src.config import TRANSFORMER_CONFIG
 

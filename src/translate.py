@@ -2,10 +2,10 @@ import torch
 from torchtext.data import Example
 import argparse
 
-from utils.data_preparing import get_data_loaders, tokenize_trg
-from utils.helper import form_subsequent_mask
+from src.utils.data_preparing import get_data_loaders, tokenize_trg
+from src.utils.helper import form_subsequent_mask
 from src.config import TRANSFORMER_CONFIG
-import utils.constants as C
+import src.utils.constants as C
 from src.models import Transformer
 
 
