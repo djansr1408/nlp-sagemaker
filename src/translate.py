@@ -4,9 +4,9 @@ import argparse
 
 from utils.data_preparing import get_data_loaders, tokenize_trg
 from utils.helper import form_subsequent_mask
-from config import TRANSFORMER_CONFIG
+from src.config import TRANSFORMER_CONFIG
 import utils.constants as C
-from models import Transformer
+from src.models import Transformer
 
 
 def translate_sentence(model, src_seq, src_pad_token_id, trg_tokenizer, device, beam_size):
