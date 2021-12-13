@@ -199,7 +199,7 @@ if __name__ == "__main__":
     parser.add_argument("--use_xavier_init", type=lambda x: (str(x).lower() == 'true'), default=True)
     parser.add_argument("--log_every_n_steps", type=int, default=600)
 
-    parser.add_argument("--dataset_dir", type=str, default=os.environ['SM_CHANNEL_TRAIN'])
+    parser.add_argument("--train", type=str, default=os.environ['SM_CHANNEL_TRAIN'])
     parser.add_argument("--storage_dir", type=str, default=os.environ['SM_MODEL_DIR'])
 
     args = parser.parse_args()
@@ -209,7 +209,7 @@ if __name__ == "__main__":
     
     device = torch.device(TRANSFORMER_CONFIG['device'])
 
-    train_loader, val_loader, test_loader, src_tokenizer, trg_tokenizer = get_data_loaders(dataset_path=args.dataset_dir,  
+    train_loader, val_loader, test_loader, src_tokenizer, trg_tokenizer = get_data_loaders(dataset_path=args.train,  
                                                                                            batch_size=TRANSFORMER_CONFIG["batch_size"], 
                                                                                            device=device, 
                                                                                            load_cached=TRANSFORMER_CONFIG['load_cached'])
