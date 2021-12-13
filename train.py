@@ -24,7 +24,7 @@ class CustomOptimizer():
         Formula for calculation: lr = d_model^(-0.5) * min(num_steps^(-0.5), num_steps * warmup_steps^(-1.5))
     """
     def __init__(self, base_optimizer, **config):
-        model_dir = os.path.join(C.STORAGE_DIR, config["model_alias"])
+        model_dir = os.path.join(config["storage_dir"], config["model_alias"])
         checkpoint = load_checkpoint(model_dir)
         self.num_steps = 0
         self.warmup_steps = config["warmup_steps"]
@@ -201,12 +201,8 @@ if __name__ == "__main__":
     parser.add_argument("--dataset_dir", type=str, default=os.environ['SM_CHANNEL_TRAIN'])
     parser.add_argument("--storage_dir", type=str, default=os.environ['SM_MODEL_DIR'])
 
-
     args = parser.parse_args()
     
-    print(type(args.use_config_file))
-    print(args.use_config_file)
-
     if args.use_config_file is False:
         TRANSFORMER_CONFIG = vars(args)
     
