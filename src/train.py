@@ -13,8 +13,8 @@ import argparse
 from utils.data_preparing import get_data_loaders
 import utils.constants as C
 from utils.helper import load_checkpoint, form_subsequent_mask
-from models import Transformer
-from config import TRANSFORMER_CONFIG
+from src.models import Transformer
+from src.config import TRANSFORMER_CONFIG
 
 torch.manual_seed(0)
 
@@ -96,6 +96,7 @@ def train_and_val_epoch(model,
     train_losses = []
     model.train()
     for batch_id, batch in enumerate(data_loader):
+        print("Batch id: ", batch_id)
         src_batch, src_batch_mask, trg_batch_input, trg_batch_output, trg_batch_mask_input = prepare_batch(batch, src_pad_token_id, trg_pad_token_id, device)
 
         optimizer.zero_grad()
