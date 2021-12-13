@@ -2,6 +2,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import os
+print(os.path.dirname(os.path.realpath(__file__)))
+
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
