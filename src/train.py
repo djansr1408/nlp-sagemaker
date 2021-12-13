@@ -14,7 +14,7 @@ from utils.data_preparing import get_data_loaders
 import utils.constants as C
 from utils.helper import load_checkpoint, form_subsequent_mask
 from models import Transformer
-from config import TRANSFORMER_CONFIG
+# from config import TRANSFORMER_CONFIG
 
 torch.manual_seed(0)
 
