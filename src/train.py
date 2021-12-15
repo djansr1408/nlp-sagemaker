@@ -124,8 +124,9 @@ def train_and_val_epoch(model,
                                         }, optimizer.num_steps)
             train_losses = []
             model.train()
-            break
+            
         writer.add_scalar("Batch Loss/train", loss, optimizer.num_steps)
+        break
     
     save_path = os.path.join(model.model_dir, f"trained_model_steps_{optimizer.num_steps}.pt")
     print(f"Started saving model on path {save_path}")
