@@ -111,7 +111,6 @@ def train_and_val_epoch(model,
             lr = optimizer.step()
 
         if optimizer.num_steps % log_every_n_steps == 0:
-            print("Usaoooooooooo")
             train_loss = np.mean(train_losses)            
             val_loss = evaluate(model, 
                                 val_loader, 
@@ -137,6 +136,7 @@ def train_and_val_epoch(model,
                 'train_loss': train_loss
             }, save_path)
     print(f"Finished saving model on path {save_path}")
+    return 0, 0, save_path
 
     return train_loss, val_loss, save_path
     
