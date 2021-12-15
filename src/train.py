@@ -128,12 +128,15 @@ def train_and_val_epoch(model,
         writer.add_scalar("Batch Loss/train", loss, optimizer.num_steps)
     
     save_path = os.path.join(model.model_dir, f"trained_model_steps_{optimizer.num_steps}.pt")
+    print(f"Started saving model on path {save_path}")
     torch.save({
                 'num_steps': optimizer.num_steps, 
                 'model_state_dict': model.state_dict(), 
                 'optimizer_state_dict': optimizer.base_optimizer_.state_dict(), 
                 'train_loss': train_loss
             }, save_path)
+    print(f"Finished saving model on path {save_path}")
+    
     return train_loss, val_loss, save_path
     
 
